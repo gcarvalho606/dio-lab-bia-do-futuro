@@ -67,11 +67,13 @@ flowchart LR
 
 ### 3. Prompts do Agente
 
-Documente os prompts que definem o comportamento do seu agente:
+Documente os prompts que definem o comportamento do **InvestSmart AI**, um assistente virtual criado para auxiliar investidores iniciantes no aprendizado sobre investimentos.
 
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
+O agente deve possuir uma comunicação simples, educativa e responsável, ajudando usuários sem experiência a compreender conceitos financeiros.
+
+- **System Prompt:** Instruções gerais de comportamento, personalidade, limites e regras de segurança do agente.
+- **Exemplos de Interação:** Cenários simulando dúvidas comuns de investidores iniciantes e respostas esperadas.
+- **Tratamento de Edge Cases:** Estratégias para lidar com pedidos de recomendações financeiras, informações incompletas ou solicitações inadequadas.
 
 📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
 
@@ -79,11 +81,17 @@ Documente os prompts que definem o comportamento do seu agente:
 
 ### 4. Aplicação Funcional
 
-Desenvolva um **protótipo funcional** do seu agente:
+Desenvolva um **protótipo funcional do InvestSmart AI**:
 
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
+O agente deverá funcionar como um chatbot interativo capaz de auxiliar usuários iniciantes através de uma interface simples.
+
+Funcionalidades esperadas:
+
+- Chatbot interativo utilizando Streamlit, Gradio ou tecnologia similar;
+- Integração com um modelo de Inteligência Artificial Generativa;
+- Consulta à base de conhecimento sobre investimentos;
+- Respostas educativas sobre conceitos financeiros;
+- Orientação inicial baseada no perfil do investidor.
 
 📁 **Pasta:** [`src/`](./src/)
 
@@ -91,12 +99,15 @@ Desenvolva um **protótipo funcional** do seu agente:
 
 ### 5. Avaliação e Métricas
 
-Descreva como você avalia a qualidade do seu agente:
+Descreva como a qualidade do **InvestSmart AI** será avaliada.
 
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
+A avaliação considera a capacidade do agente de fornecer informações corretas, seguras e adequadas para investidores iniciantes.
+
+**Métricas utilizadas:**
+
+- **Precisão/assertividade das respostas:** Avalia se o agente fornece explicações corretas sobre conceitos financeiros.
+- **Taxa de respostas seguras (sem alucinações):** Mede a capacidade do agente de evitar informações inventadas, promessas de retorno ou recomendações inadequadas.
+- **Coerência com o perfil do investidor:** Verifica se as respostas consideram objetivos, experiência e tolerância ao risco do usuário.
 
 📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
 
@@ -104,11 +115,18 @@ Descreva como você avalia a qualidade do seu agente:
 
 ### 6. Pitch
 
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
+Grave um **pitch de 3 minutos** apresentando o InvestSmart AI.
 
-- Qual problema seu agente resolve?
+O pitch deve abordar:
+
+- Qual problema o agente resolve?
+  - Dificuldade de investidores iniciantes em compreender conceitos financeiros e iniciar sua jornada de investimentos.
+
 - Como ele funciona na prática?
+  - O usuário conversa com o chatbot, realiza perguntas sobre investimentos e recebe explicações personalizadas utilizando Inteligência Artificial Generativa e uma base de conhecimento financeira.
+
 - Por que essa solução é inovadora?
+  - O InvestSmart AI utiliza IA para democratizar o acesso à educação financeira, tornando conceitos de investimentos mais acessíveis para pessoas que estão começando.
 
 📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
 
@@ -120,49 +138,39 @@ Todas as ferramentas abaixo possuem versões gratuitas:
 
 | Categoria | Ferramentas |
 |-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+| **LLMs** | ChatGPT, Copilot, Gemini, Claude, Ollama |
+| **Desenvolvimento** | Streamlit, Gradio, Google Colab |
+| **Orquestração** | LangChain, LangFlow, CrewAI |
+| **Diagramas** | Mermaid, Draw.io, Excalidraw |
 
 ---
 
 ## Estrutura do Repositório
 
-```
-📁 lab-agente-financeiro/
+```text
+📁 investsmart-ai/
 │
 ├── 📄 README.md
 │
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
+├── 📁 data/
+│   ├── historico_perguntas.csv
+│   ├── perfil_investidor.json
+│   ├── produtos_investimento.json
+│   └── conceitos_financeiros.csv
 │
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
+├── 📁 docs/
+│   ├── 01-documentacao-agente.md
+│   ├── 02-base-conhecimento.md
+│   ├── 03-prompts.md
+│   ├── 04-metricas.md
+│   └── 05-pitch.md
 │
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
+├── 📁 src/
+│   └── app.py
 │
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
+├── 📁 assets/
+│   └── arquitetura.png
 │
-└── 📁 examples/                      # Referências e exemplos
+└── 📁 examples/
     └── README.md
 ```
-
----
-
-## Dicas Finais
-
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
