@@ -18,29 +18,48 @@ Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots
 
 ### 1. Documentação do Agente
 
-Defina **o que** seu agente faz e **como** ele funciona:
+O **InvestSmart AI** é um assistente virtual desenvolvido para auxiliar investidores iniciantes na compreensão dos principais conceitos do mercado financeiro. Utilizando Inteligência Artificial e uma base de conhecimento estruturada, o agente fornece respostas claras, educativas e confiáveis sobre investimentos, sempre priorizando a transparência e evitando recomendações financeiras personalizadas.
 
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
+- **Caso de Uso:** O **InvestSmart AI** é um assistente virtual de educação financeira que auxilia investidores iniciantes a compreender conceitos sobre investimentos, perfil de risco e planejamento financeiro. Seu objetivo é fornecer informações claras e educativas, sem realizar recomendações de compra ou venda de ativos.
+- **Persona e Tom de Voz:** O agente se comunica de forma clara, objetiva e acessível, utilizando linguagem simples para facilitar o entendimento de usuários iniciantes. Sempre mantém um tom profissional, imparcial e educativo.
+- **Arquitetura:** O usuário faz uma pergunta, que é analisada pelo agente. Em seguida, a IA consulta a base de conhecimento, utiliza essas informações como contexto e gera uma resposta fundamentada antes de enviá-la ao usuário.
+- **Segurança:** O agente responde apenas com base na base de conhecimento disponível, evita gerar informações inexistentes, informa quando não possui dados suficientes e não realiza recomendações financeiras ou previsões de mercado.
 
 📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
 
 ---
+## 2. Base de Conhecimento
 
-### 2. Base de Conhecimento
+A base de conhecimento do **InvestSmart AI** é composta por documentos estruturados contendo informações sobre investimentos, perfil do investidor e conceitos do mercado financeiro. Esses dados são utilizados como contexto para gerar respostas mais precisas e confiáveis.
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+## 2. Base de Conhecimento
 
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+```mermaid
+flowchart LR
+    A[Usuário] --> B[Pergunta]
 
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
+    B --> C[Base de Conhecimento]
+
+    C --> D[Perfil do Investidor]
+    C --> E[Produtos Financeiros]
+    C --> F[Glossário Financeiro]
+    C --> G[Perguntas Frequentes]
+
+    D --> H[Modelo de IA]
+    E --> H
+    F --> H
+    G --> H
+
+    H --> I[Resposta ao Usuário]
+```
+
+## Componentes
+
+| Componente | Descrição |
+|------------|-----------|
+| Interface | Streamlit |
+| LLM | OpenAI GPT-5.5 |
+| Base de Conhecimento | JSON/CSV contendo informações sobre investimentos |```
 
 📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
 
