@@ -58,7 +58,7 @@ flowchart LR
 | Componente | Descrição |
 |------------|-----------|
 | Interface | Streamlit |
-| LLM | OpenAI GPT-5.5 |
+| LLM | OpenAI API |
 | Base de Conhecimento | JSON/CSV contendo informações sobre investimentos |```
 
 📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
